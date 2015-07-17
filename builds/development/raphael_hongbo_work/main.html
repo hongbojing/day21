@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<style>
+		#paperDiv{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;			
+			position: fixed;
+		}
+		#paperDiv1{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;		
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+<div id="paperDiv1">			
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+					    <div class="item active">
+					      <img src="back1.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back2.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back3.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+						<div class="item">
+					      <img src="back4.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					  </div>					  
+					</div>
+				</div>
+<div id="paperDiv"></div>
+
+
+<script src="raphael.js"></script>
+<script>
+	window.onload = function () {
+	var paper=Raphael("paperDiv",1000,700);//画布
+
+	//var img6=paper.image("0beforehomepage/bg5.jpg",0,0,1000,700);
+
+	var img1=paper.image("0home_page/1about(white).png",500,350,0,0).animate({'x':'450','y':'100','width':'100','height':'100'},1000);//白色1号的加载后位置
+	var img2=paper.image("0home_page/2interact(white).png",500,350,0,0).animate({'x':'450','y':'250','width':'100','height':'80'},1000);//白色2号的加载后位置
+	var img3=paper.image("0home_page/3gallery(white).png",500,350,0,0).animate({'x':'450','y':'400','width':'100','height':'80'},1000);//白色3号的加载后位置
+	var img4=paper.image("0home_page/4connect(white).png",500,350,0,0).animate({'x':'450','y':'550','width':'100','height':'100'},1000);////白色4号的加载后位置；页面加载完之后四个选项的状态
+	img1.attr({'cursor':'pointer'});
+	img2.attr({'cursor':'pointer'});
+	img3.attr({'cursor':'pointer'});
+	img4.attr({'cursor':'pointer'});//定义手势
+	//---------------------------------------------------------------------
+	//about的支线bg info；concept，objective
+	var rect1=paper.rect(650,150,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text1=paper.text(650,135,'bg  info').attr({'font-size':'0'});
+
+	var rect1_1=paper.rect(800,150,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text1_1=paper.text(800,135,'concept').attr({'font-size':'0'});
+
+	var rect1_2=paper.rect(950,150,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text1_2=paper.text(950,135,'objective').attr({'font-size':'0'});
+	//------------------------------------------------------------------------
+	//interact的支线task，box，idea
+	var rect2=paper.rect(650,300,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text2=paper.text(650,285,'task').attr({'font-size':'0'});
+
+	var rect2_1=paper.rect(800,300,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text2_1=paper.text(800,285,'box').attr({'font-size':'0'});
+
+	var rect2_2=paper.rect(950,300,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text2_2=paper.text(950,285,'idea').attr({'font-size':'0'});
+	//------------------------------------------------------------------------
+	//gallery的支线cities，#topics#，store
+	var rect3=paper.rect(650,450,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text3=paper.text(650,445,'cities').attr({'font-size':'0'});
+
+	var rect3_1=paper.rect(800,450,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text3_1=paper.text(800,445,'#topics#').attr({'font-size':'0'});
+
+	var rect3_2=paper.rect(950,450,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text3_2=paper.text(950,445,'store').attr({'font-size':'0'});
+	//------------------------------------------------------------------------
+	//contace的支线email；insta
+	var rect4=paper.rect(650,600,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text4=paper.text(650,618,'email').attr({'font-size':'0'});
+
+	var rect4_1=paper.rect(800,600,0,0).attr({'fill':'white','cursor':'pointer'});
+	var text4_1=paper.text(800,618,'insta').attr({'font-size':'0'});
+
+	
+	//------------------------------------------------------------------------
+	var img1_1=paper.image("0home_page/1about(black).png",500,150,0,0);
+	var img2_1=paper.image("0home_page/2interact(black).png",500,290,0,0);
+	var img3_1=paper.image("0home_page/3gallery(black).png",500,440,0,0);
+	var img4_1=paper.image("0home_page/4connect(black).png",500,600,0,0);//新图片也是从中点发散出来的
+	img1_1.attr({'cursor':'pointer'});
+	img2_1.attr({'cursor':'pointer'});
+	img3_1.attr({'cursor':'pointer'});
+	img4_1.attr({'cursor':'pointer'});
+
+	//create a set
+	//
+	// var raphaelSet=paper.Set();
+	// raphaelSet.push(img1,img2,img3,img4,img1_1,img2_1,img4_1,img3_1);
+
+
+
+	//var text1=paper.text(100,100,'URBAN GENES').attr({'font-size':'20','font-family':'Avenier'});
+	img1.mouseover(function(){img1.animate({'x':'500','y':'150','width':'0','height':'0'},300)});//白色的回去
+	img1.mouseover(function(){img1_1.animate({'x':'450','y':'100','width':'100','height':'100'},300)});//黑色的出来，位置与白色一样
+
+
+	//to set the rect1 and text 1
+	img1.mouseover(function(){rect1.animate({'x':'600','y':'100','width':'100','height':'65'},1000)});
+	img1.mouseover(function(){text1.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect1.mouseover(function(){rect1.animate({'fill':'black'},500)});
+	rect1.mouseover(function(){text1.animate({'fill':'white'},500)});
+	rect1.mouseout(function(){rect1.animate({'fill':'white'},500)});
+	rect1.mouseout(function(){text1.animate({'fill':'black'},500)});
+	text1.mouseover(function(){rect1.animate({'fill':'black'},500)});
+	text1.mouseover(function(){text1.animate({'fill':'white'},500)});
+	text1.mouseout(function(){rect1.animate({'fill':'white'},500)});
+	text1.mouseout(function(){text1.animate({'fill':'black'},500)});
+
+	//when click the 'bg info'
+	//to set the rect1 and text 1_1
+	img1.mouseover(function(){rect1_1.animate({'x':'750','y':'100','width':'100','height':'65'},1000)});
+	img1.mouseover(function(){text1_1.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect1_1.mouseover(function(){rect1_1.animate({'fill':'black'},500)});
+	rect1_1.mouseover(function(){text1_1.animate({'fill':'white'},500)});
+	rect1_1.mouseout(function(){rect1_1.animate({'fill':'white'},500)});
+	rect1_1.mouseout(function(){text1_1.animate({'fill':'black'},500)});
+	text1_1.mouseover(function(){rect1_1.animate({'fill':'black'},500)});
+	text1_1.mouseover(function(){text1_1.animate({'fill':'white'},500)});
+	text1_1.mouseout(function(){rect1_1.animate({'fill':'white'},500)});
+	text1_1.mouseout(function(){text1_1.animate({'fill':'black'},500)});
+	
+	//
+	//to set the rect1 and text 1_2
+	//
+	img1.mouseover(function(){rect1_2.animate({'x':'900','y':'100','width':'100','height':'65'},1000)});
+	img1.mouseover(function(){text1_2.animate({'font-size':'17','fill':'black'},1000)});
+	rect1_2.mouseover(function(){rect1_2.animate({'fill':'black'},500)});
+	rect1_2.mouseover(function(){text1_2.animate({'fill':'white'},500)});
+	rect1_2.mouseout(function(){rect1_2.animate({'fill':'white'},500)});
+	rect1_2.mouseout(function(){text1_2.animate({'fill':'black'},500)});
+	text1_2.mouseover(function(){rect1_2.animate({'fill':'black'},500)});
+	text1_2.mouseover(function(){text1_2.animate({'fill':'white'},500)});
+	text1_2.mouseout(function(){rect1_2.animate({'fill':'white'},500)});
+	text1_2.mouseout(function(){text1_2.animate({'fill':'black'},500)});
+	//1的mouseover和1——1的mouseout的使用
+	img1_1.mouseout(function(){img1.animate({'x':'450','y':'100','width':'100','height':'100'},300)});
+	img1_1.mouseout(function(){img1_1.animate({'x':'500','y':'150','width':'0','height':'0'},300)});
+
+	img1_1.click(function(){rect1.animate({'x':'650','y':'150','width':'0','height':'0'},300)});
+	img1_1.click(function(){text1.animate({'font-size':'0'},300)});
+	img1_1.click(function(){rect1_1.animate({'x':'800','y':'150','width':'0','height':'0'},300)});
+	img1_1.click(function(){text1_1.animate({'font-size':'0'},300)});
+	img1_1.click(function(){rect1_2.animate({'x':'950','y':'150','width':'0','height':'0'},300)});
+	img1_1.click(function(){text1_2.animate({'font-size':'0'},300)});
+
+///////////////////////////////////////////////////////////
+	img2.mouseover(function(){img2.animate({'x':'500','y':'300','width':'0','height':'0'},300)});
+	img2.mouseover(function(){img2_1.animate({'x':'450','y':'250','width':'100','height':'80'},300)});//黑色的出来，位置与白色一样
+
+	img2_1.mouseout(function(){img2.animate({'x':'450','y':'250','width':'100','height':'80'},300)});
+	img2_1.mouseout(function(){img2_1.animate({'x':'500','y':'300','width':'0','height':'0'},300)});
+
+	img2.mouseover(function(){rect2.animate({'x':'600','y':'250','width':'100','height':'65'},1000)});
+	img2.mouseover(function(){text2.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect2.mouseover(function(){rect2.animate({'fill':'black'},500)});
+	rect2.mouseover(function(){text2.animate({'fill':'white'},500)});
+	rect2.mouseout(function(){rect2.animate({'fill':'white'},500)});
+	rect2.mouseout(function(){text2.animate({'fill':'black'},500)});
+	text2.mouseover(function(){rect2.animate({'fill':'black'},500)});
+	text2.mouseover(function(){text2.animate({'fill':'white'},500)});
+	text2.mouseout(function(){rect2.animate({'fill':'white'},500)});
+	text2.mouseout(function(){text2.animate({'fill':'black'},500)});
+
+	//when click the 'bg info'
+	//to set the rect1 and text 1_1
+	img2.mouseover(function(){rect2_1.animate({'x':'750','y':'250','width':'100','height':'65'},1000)});
+	img2.mouseover(function(){text2_1.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect2_1.mouseover(function(){rect2_1.animate({'fill':'black'},500)});
+	rect2_1.mouseover(function(){text2_1.animate({'fill':'white'},500)});
+	rect2_1.mouseout(function(){rect2_1.animate({'fill':'white'},500)});
+	rect2_1.mouseout(function(){text2_1.animate({'fill':'black'},500)});
+	text2_1.mouseover(function(){rect2_1.animate({'fill':'black'},500)});
+	text2_1.mouseover(function(){text2_1.animate({'fill':'white'},500)});
+	text2_1.mouseout(function(){rect2_1.animate({'fill':'white'},500)});
+	text2_1.mouseout(function(){text2_1.animate({'fill':'black'},500)});
+	
+	//
+	//to set the rect1 and text 1_2
+	//
+	img2.mouseover(function(){rect2_2.animate({'x':'900','y':'250','width':'100','height':'65'},1000)});
+	img2.mouseover(function(){text2_2.animate({'font-size':'17','fill':'black'},1000)});
+	rect2_2.mouseover(function(){rect2_2.animate({'fill':'black'},500)});
+	rect2_2.mouseover(function(){text2_2.animate({'fill':'white'},500)});
+	rect2_2.mouseout(function(){rect2_2.animate({'fill':'white'},500)});
+	rect2_2.mouseout(function(){text2_2.animate({'fill':'black'},500)});
+	text2_2.mouseover(function(){rect2_2.animate({'fill':'black'},500)});
+	text2_2.mouseover(function(){text2_2.animate({'fill':'white'},500)});
+	text2_2.mouseout(function(){rect2_2.animate({'fill':'white'},500)});
+	text2_2.mouseout(function(){text2_2.animate({'fill':'black'},500)});
+
+
+
+	img2_1.click(function(){rect2.animate({'x':'650','y':'300','width':'0','height':'0'},300)});
+	img2_1.click(function(){text2.animate({'font-size':'0'},300)});
+	img2_1.click(function(){rect2_1.animate({'x':'800','y':'300','width':'0','height':'0'},300)});
+	img2_1.click(function(){text2_1.animate({'font-size':'0'},300)});
+	img2_1.click(function(){rect2_2.animate({'x':'950','y':'300','width':'0','height':'0'},300)});
+	img2_1.click(function(){text2_2.animate({'font-size':'0'},300)});
+
+
+
+
+	////////////////////////////////////////
+	img3.mouseover(function(){img3.animate({'x':'500','y':'450','width':'0','height':'0'},300)});
+	img3.mouseover(function(){img3_1.animate({'x':'450','y':'400','width':'100','height':'80'},300)});//黑色的出来，位置与白色一样
+
+	img3_1.mouseout(function(){img3.animate({'x':'450','y':'400','width':'100','height':'80'},300)});
+	img3_1.mouseout(function(){img3_1.animate({'x':'500','y':'450','width':'0','height':'0'},300)});
+
+	img3.mouseover(function(){rect3.animate({'x':'600','y':'414','width':'100','height':'65'},1000)});
+	img3.mouseover(function(){text3.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect3.mouseover(function(){rect3.animate({'fill':'black'},500)});
+	rect3.mouseover(function(){text3.animate({'fill':'white'},500)});
+	rect3.mouseout(function(){rect3.animate({'fill':'white'},500)});
+	rect3.mouseout(function(){text3.animate({'fill':'black'},500)});
+	text3.mouseover(function(){rect3.animate({'fill':'black'},500)});
+	text3.mouseover(function(){text3.animate({'fill':'white'},500)});
+	text3.mouseout(function(){rect3.animate({'fill':'white'},500)});
+	text3.mouseout(function(){text3.animate({'fill':'black'},500)});
+
+	//when click the 'bg info'
+	//to set the rect1 and text 1_1
+	img3.mouseover(function(){rect3_1.animate({'x':'750','y':'414','width':'100','height':'65'},1000)});
+	img3.mouseover(function(){text3_1.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect3_1.mouseover(function(){rect3_1.animate({'fill':'black'},500)});
+	rect3_1.mouseover(function(){text3_1.animate({'fill':'white'},500)});
+	rect3_1.mouseout(function(){rect3_1.animate({'fill':'white'},500)});
+	rect3_1.mouseout(function(){text3_1.animate({'fill':'black'},500)});
+	text3_1.mouseover(function(){rect3_1.animate({'fill':'black'},500)});
+	text3_1.mouseover(function(){text3_1.animate({'fill':'white'},500)});
+	text3_1.mouseout(function(){rect3_1.animate({'fill':'white'},500)});
+	text3_1.mouseout(function(){text3_1.animate({'fill':'black'},500)});
+	
+	//
+	//to set the rect1 and text 1_2
+	//
+	img3.mouseover(function(){rect3_2.animate({'x':'900','y':'414','width':'100','height':'65'},1000)});
+	img3.mouseover(function(){text3_2.animate({'font-size':'17','fill':'black'},1000)});
+	rect3_2.mouseover(function(){rect3_2.animate({'fill':'black'},500)});
+	rect3_2.mouseover(function(){text3_2.animate({'fill':'white'},500)});
+	rect3_2.mouseout(function(){rect3_2.animate({'fill':'white'},500)});
+	rect3_2.mouseout(function(){text3_2.animate({'fill':'black'},500)});
+	text3_2.mouseover(function(){rect3_2.animate({'fill':'black'},500)});
+	text3_2.mouseover(function(){text3_2.animate({'fill':'white'},500)});
+	text3_2.mouseout(function(){rect3_2.animate({'fill':'white'},500)});
+	text3_2.mouseout(function(){text3_2.animate({'fill':'black'},500)});
+
+
+
+	img3_1.click(function(){rect3.animate({'x':'650','y':'450','width':'0','height':'0'},300)});
+	img3_1.click(function(){text3.animate({'font-size':'0'},300)});
+	img3_1.click(function(){rect3_1.animate({'x':'800','y':'450','width':'0','height':'0'},300)});
+	img3_1.click(function(){text3_1.animate({'font-size':'0'},300)});
+	img3_1.click(function(){rect3_2.animate({'x':'950','y':'450','width':'0','height':'0'},300)});
+	img3_1.click(function(){text3_2.animate({'font-size':'0'},300)});
+
+
+
+
+
+////////////////////////////////////////////////////////////
+	img4.mouseover(function(){img4.animate({'x':'500','y':'600','width':'0','height':'0'},300)});
+	img4.mouseover(function(){img4_1.animate({'x':'450','y':'550','width':'100','height':'100'},300)});//黑色的出来，位置与白色一样
+
+	img4_1.mouseout(function(){img4.animate({'x':'450','y':'550','width':'100','height':'100'},300)});
+	img4_1.mouseout(function(){img4_1.animate({'x':'500','y':'600','width':'0','height':'0'},300)});
+	
+	img4.mouseover(function(){rect4.animate({'x':'600','y':'583','width':'100','height':'65'},1000)});
+	img4.mouseover(function(){text4.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect4.mouseover(function(){rect4.animate({'fill':'black'},500)});
+	rect4.mouseover(function(){text4.animate({'fill':'white'},500)});
+	rect4.mouseout(function(){rect4.animate({'fill':'white'},500)});
+	rect4.mouseout(function(){text4.animate({'fill':'black'},500)});
+	text4.mouseover(function(){rect4.animate({'fill':'black'},500)});
+	text4.mouseover(function(){text4.animate({'fill':'white'},500)});
+	text4.mouseout(function(){rect4.animate({'fill':'white'},500)});
+	text4.mouseout(function(){text4.animate({'fill':'black'},500)});
+
+	//when click the 'bg info'
+	//to set the rect1 and text 1_1
+	img4.mouseover(function(){rect4_1.animate({'x':'750','y':'583','width':'100','height':'65'},1000)});
+	img4.mouseover(function(){text4_1.animate({'font-size':'17','fill':'black'},1000)});
+
+	rect4_1.mouseover(function(){rect4_1.animate({'fill':'black'},500)});
+	rect4_1.mouseover(function(){text4_1.animate({'fill':'white'},500)});
+	rect4_1.mouseout(function(){rect4_1.animate({'fill':'white'},500)});
+	rect4_1.mouseout(function(){text4_1.animate({'fill':'black'},500)});
+	text4_1.mouseover(function(){rect4_1.animate({'fill':'black'},500)});
+	text4_1.mouseover(function(){text4_1.animate({'fill':'white'},500)});
+	text4_1.mouseout(function(){rect4_1.animate({'fill':'white'},500)});
+	text4_1.mouseout(function(){text4_1.animate({'fill':'black'},500)});
+	
+	
+
+
+
+	img4_1.click(function(){rect4.animate({'x':'650','y':'600','width':'0','height':'0'},300)});
+	img4_1.click(function(){text4.animate({'font-size':'0'},300)});
+	img4_1.click(function(){rect4_1.animate({'x':'800','y':'600','width':'0','height':'0'},300)});
+	img4_1.click(function(){text4_1.animate({'font-size':'0'},300)});
+
+
+
+	//open the other window for  reach rect
+	rect1.click(function(){window.open('bginfo.html','_self')});
+	rect1_1.click(function(){window.open('concept.html','_self')});
+	rect1_2.click(function(){window.open('objective.html','_self')});
+	rect2.click(function(){window.open('task.html','_self')});
+	rect2_1.click(function(){window.open('box.html','_self')});
+	rect2_2.click(function(){window.open('idea.html','_self')});
+	rect3.click(function(){window.open('cities.html','_self')});
+	rect3_1.click(function(){window.open('topic.html','_self')});
+	rect3_2.click(function(){window.open('store.html','_self')});
+	rect4.click(function(){window.open('email.html','_self')});
+	rect4_1.click(function(){window.open('insta.html','_self')});
+	var img8=paper.image("0beforehomepage/urbangenes(white).png",50,30,100,70);//左上角title
+
+	img8.attr({'cursor':'pointer'});//定义手势
+
+	img8.click(function(){window.open('login.html','_self')});
+
+
+	//rect5.click(function(){window.open('main.html')});
+
+}
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

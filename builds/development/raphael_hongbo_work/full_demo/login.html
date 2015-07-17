@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#paperDiv{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<div id="paperDiv"></div>
+
+
+<script src="raphael.js"></script>
+<script>
+	window.onload = function () {
+	var paper=Raphael("paperDiv",1000,1000);
+	var rect1=paper.rect(400,700,200,100,10).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect2=paper.rect(400,700,200,100,10).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect3=paper.rect(400,700,200,100,10).attr({'fill':'black','stroke-width':'2','cursor':'pointer'});
+	var rect4=paper.rect(400,700,200,100,10).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect5=paper.rect(400,300,0,0,10).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect6=paper.rect(400,300,0,0,10).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	rect3.animate({"y":"500"},2000,"bounce");
+	rect2.animate({"y":"300"},2000,"bounce");
+	rect1.animate({"y":"100"},2000,"bounce");
+	var text4=paper.text(500,750,"URBAN\nGENES").attr({'fill':'black','font-size':'20','text-anchor':'middle'});
+	var text3=paper.text(500,750,"SKIP").attr({'fill':'black','font-size':'20','text-anchor':'middle'});
+	var text2=paper.text(500,750,"JOIN\nUS").attr({'fill':'black','font-size':'20','text-anchor':'middle'});
+	var text1=paper.text(500,750,"LOG\nIN").attr({'fill':'black','font-size':'20','text-anchor':'middle'});
+	var text5=paper.text(400,350,"learn").attr({'fill':'black','font-size':'0','text-anchor':'middle'});
+	var text6=paper.text(600,350,"contribute").attr({'fill':'black','font-size':'0','text-anchor':'middle'});
+	text3.animate({"y":"550","fill":"white"},2000,"bounce");
+	text2.animate({"y":"350"},2000,"bounce");
+	text1.animate({"y":"150"},2000,"bounce");
+	rect2.mouseover(function(){rect5.animate({'x':'100','width':'200','height':'100'},2000,'bounce')});
+	rect2.mouseover(function(){text5.animate({'font-size':'20','x':'200'},2000,'bounce')});
+	rect2.mouseover(function(){rect6.animate({'x':'700','width':'200','height':'100'},2000,'bounce')});
+	rect2.mouseover(function(){text6.animate({'font-size':'20','x':'800'},2000,'bounce')});
+	rect2.mouseover(function(){rect2.animate({'fill':'black'},500)});
+	rect2.mouseover(function(){text2.animate({'fill':'white'},500)});
+	rect2.mouseout(function(){rect2.animate({'fill':'white'},500)});
+	rect2.mouseout(function(){text2.animate({'fill':'black'},500)});
+	text2.mouseover(function(){rect2.animate({'fill':'black'},500)});
+	text2.mouseover(function(){text2.animate({'fill':'white'},500)});
+	text2.mouseout(function(){rect2.animate({'fill':'white'},500)});
+	text2.mouseout(function(){text2.animate({'fill':'black'},500)});
+	rect5.mouseover(function(){rect5.animate({'fill':'black'},500)});
+	rect5.mouseover(function(){text5.animate({'fill':'white'},500)});
+	rect5.mouseout(function(){rect5.animate({'fill':'white'},500)});
+	rect5.mouseout(function(){text5.animate({'fill':'black'},500)});
+	text5.mouseover(function(){rect5.animate({'fill':'black'},500)});
+	text5.mouseover(function(){text5.animate({'fill':'white'},500)});
+	text5.mouseout(function(){rect5.animate({'fill':'white'},500)});
+	text5.mouseout(function(){text5.animate({'fill':'black'},500)});
+	rect6.mouseover(function(){rect6.animate({'fill':'black'},500)});
+	rect6.mouseover(function(){text6.animate({'fill':'white'},500)});
+	rect6.mouseout(function(){rect6.animate({'fill':'white'},500)});
+	rect6.mouseout(function(){text6.animate({'fill':'black'},500)});
+	text6.mouseover(function(){rect6.animate({'fill':'black'},500)});
+	text6.mouseover(function(){text6.animate({'fill':'white'},500)});
+	text6.mouseout(function(){rect6.animate({'fill':'white'},500)});
+	text6.mouseout(function(){text6.animate({'fill':'black'},500)});
+	rect1.mouseover(function(){rect1.animate({'fill':'black'},500)});
+	rect1.mouseover(function(){text1.animate({'fill':'white'},500)});
+	rect1.mouseout(function(){rect1.animate({'fill':'white'},500)});
+	rect1.mouseout(function(){text1.animate({'fill':'black'},500)});
+	text1.mouseover(function(){rect1.animate({'fill':'black'},500)});
+	text1.mouseover(function(){text1.animate({'fill':'white'},500)});
+	text1.mouseout(function(){rect1.animate({'fill':'white'},500)});
+	text1.mouseout(function(){text1.animate({'fill':'black'},500)});
+
+}
+</script>
+</body>
+</html>

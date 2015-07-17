@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<style>
+		#paperDiv{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;			
+			position: fixed;
+		}
+		#paperDiv1{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;		
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+<div id="paperDiv1">			
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+					    <div class="item active">
+					      <img src="back1.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back2.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back3.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+						<div class="item">
+					      <img src="back4.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					  </div>					  
+					</div>
+				</div>
+	<div id="paperDiv"></div>	
+	<script src="raphael.js"></script>
+	<script>
+	window.onload = function () {
+	var paper=Raphael("paperDiv",1000,700);//set the canvas
+	var img2=paper.image("0beforehomepage/bg1.jpg",500,350,0,0);
+	var img3=paper.image("0beforehomepage/bg2.jpg",500,350,0,0);
+	var img4=paper.image("0beforehomepage/bg3.jpg",500,350,0,0);
+	var img5=paper.image("0beforehomepage/bg4.jpg",500,350,0,0);
+	var img6=paper.image("0beforehomepage/bg5.jpg",500,350,0,0);
+
+
+	var img=paper.image("0beforehomepage/urban_genes_box_close.png",450,250,100,111).attr({'cursor':'pointer'});
+	var img1=paper.image("0beforehomepage/urban_genes_box_open.png",500,275,0,0).attr({'cursor':'pointer'});
+	img.mousedown(function(){img.animate({'x':'500','y':'275','width':'0','height':'0','transform':'t0,300'},1500)});
+	img.mouseup(function(){img1.animate({'x':'450','y':'186','width':'100','height':'175','transform':'t0,300'},1500)});
+	//img1.click(function(){this.animate({'transform':'t0,300'},1000,'bounce')});
+	// img1.mousemove(function(){img2.animate({'x':'0','y':'0','width':'1000','height':'700'},1500,"easeOut")});
+	// img2.click(function(){img3.animate({'x':'0','y':'0','width':'1000','height':'700'},1500,"easeIn")});
+	// img3.click(function(){img4.animate({'x':'0','y':'0','width':'1000','height':'700'},1500,"easeIn")});
+	// img4.click(function(){img5.animate({'x':'0','y':'0','width':'1000','height':'700'},1500,"easeIn")});
+	// img5.click(function(){img6.animate({'x':'0','y':'0','width':'1000','height':'700'},1500,"easeIn")});
+	// img6.click(function(){img2.animate({'x':'0','y':'0','width':'1000','height':'700'},1500,"easeIn")});
+	img1.click(function(){window.open('login.html','_self')});
+
+	}
+
+
+	</script>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

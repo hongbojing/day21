@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<style>
+		#paperDiv{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;			
+			position: fixed;
+		}
+		#paperDiv1{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;		
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+<div id="paperDiv1">			
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+					    <div class="item active">
+					      <img src="back1.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back2.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back3.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+						<div class="item">
+					      <img src="back4.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					  </div>					  
+					</div>
+				</div>
+<div id="paperDiv"></div>
+
+
+<script src="raphael.js"></script>
+<script>
+	window.onload = function () {
+	var paper=Raphael("paperDiv",1000,700);//画布
+
+
+	var img1=paper.image("0home_page/1about(white).png",450,100,100,100).animate({'x':'50','y':'100','width':'100','height':'100'},2000);//白色1号的加载后位置
+	var img2=paper.image("0home_page/2interact(black).png",450,250,100,80).animate({'x':'50','y':'250','width':'100','height':'80'},2000);//白色2号的加载后位置
+	var img3=paper.image("0home_page/3gallery(white).png",450,400,100,80).animate({'x':'50','y':'400','width':'100','height':'80'},2000);//白色3号的加载后位置
+	var img4=paper.image("0home_page/4connect(white).png",450,550,100,100).animate({'x':'50','y':'550','width':'100','height':'100'},2000);//四个最先开始出现的
+	var img5=paper.image("2interaction_task/menu_task.png",200,300,0,0);//按钮菜单
+	var img6=paper.image("2interaction_task/calendar.png",650,350,0,0);//正文
+	var img8=paper.image("0beforehomepage/urbangenes(white).png",50,30,100,70);//左上角title
+
+
+
+
+	//白色4号的加载后位置；页面加载完之后四个选项的状态
+	img1.attr({'cursor':'pointer'});
+	img2.attr({'cursor':'pointer'});
+	img3.attr({'cursor':'pointer'});
+	img4.attr({'cursor':'pointer'});//定义手势
+	img5.attr({'cursor':'pointer'});//定义手势
+	img6.attr({'cursor':'pointer'});//定义手势
+	img8.attr({'cursor':'pointer'});//定义手势
+	
+	//---------------------------------------------------------------------
+	img2.click(function(){img5.animate({'x':'150','y':'250','width':'80','height':'80'},1000)});
+	img5.click(function(){img6.animate({'x':'300','y':'100','width':'700','height':'500'},1000)});
+	img8.click(function(){window.open('main.html','_self')});
+	
+
+	
+
+
+
+}
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

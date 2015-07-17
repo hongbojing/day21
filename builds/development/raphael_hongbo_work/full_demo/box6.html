@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<style>
+		#paperDiv{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 600px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="paperDiv"></div>	
+	<script src="raphael.js"></script>
+	<script>
+	window.onload = function () {
+	var paper=Raphael("paperDiv",1000,1000);
+	var img=paper.image("pic1.svg",130,220,0,0);
+	var img2=paper.image("pic2.svg",130,220,0,0);
+	var img3=paper.image("pic3.svg",130,220,0,0);
+	var box1_1=paper.path("m 200.0102,511.93057 201.02036,0 0,141.42136 -202.03051,0 z").attr({'fill':'white'});
+	var box1_2=paper.path("m 200.0102,511.93057 20.20305,-79.80205 160.61426,0 20.20305,79.80205").attr({'fill':'black'});
+	var box1_3=paper.path("m 220.21325,431.52443 0,-50.66404 0,-89.14307 160.61426,0 -1.01015,89.14307 1.01015,50.66404").attr({'fill':'white','stroke':'white'});
+	var box1_4=paper.path("m 200.0102,511.93057 20.20305,-79.80205 0,80.8122 z").attr({'fill':'black'});
+	var box1_5=paper.path("m 401.03056,511.93057 -21.2132,-79.80205 1.01015,79.80205 z").attr({'fill':'black'});
+	var raphaelSet1=paper.set();
+	raphaelSet1.push(box1_1,box1_2,box1_3,box1_4,box1_5);
+	raphaelSet1.attr({'cursor':'pointer'});
+	//linear
+	//easeIn
+	//easeOut
+	//backIn
+	//backOut
+	raphaelSet1.mouseup(function(){raphaelSet1[2].animate({"fill":"black"},3000,"easeIn")}).mousedown(function(){raphaelSet1[1].animate({"fill":"white"},2000,"linear")});
+	var anim=Raphael.animation({"transform":"t0,200"},3000);
+	var anim1=Raphael.animation({"width":"350","height":"200"},3000);
+	raphaelSet1.click(function(){raphaelSet1.animate(anim.delay(1000));});
+	raphaelSet1.click(function(){img.animate(anim1.delay(1000));});
+	img.click(function(){img2.animate({"width":"350","height":"200"},1000,"backOut")});
+	img2.click(function(){img3.animate({"width":"380","height":"200"},1000,"bounce")});
+	img3.click(function(){window.open('login.html')});
+	}
+	</script>
+</body>
+</html>
+
+
+

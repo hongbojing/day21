@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<style>
+		#paperDiv{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;			
+			position: fixed;
+		}
+		#paperDiv1{
+			width: 1000px;
+			height: 700px;
+			margin: auto 120px;		
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+<div id="paperDiv1">			
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+					    <div class="item active">
+					      <img src="back1.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back2.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					    <div class="item">
+					      <img src="back3.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+						<div class="item">
+					      <img src="back4.jpg" alt="...">
+					      <div class="carousel-caption">					        
+					      </div>
+					    </div>
+					  </div>					  
+					</div>
+				</div>
+<div id="paperDiv"></div>
+
+
+<script src="raphael.js"></script>
+<script>
+	window.onload = function () {
+	var paper=Raphael("paperDiv",1000,700);//画布
+	//var img6=paper.image("0beforehomepage/bg5.jpg",0,0,1000,700);
+	
+	var rect1=paper.rect(450,550,100,70).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect2=paper.rect(450,550,100,70).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect3=paper.rect(450,550,100,70).attr({'fill':'black','stroke-width':'2','cursor':'pointer'});//黑色的
+		
+	var rect4=paper.image("0beforehomepage/urbangenes(white).png",450,550,100,70).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});//1,2,4都是白色的，涂白之后才能选择，不然会漏的
+	//1,2,3,4，一开始都在4的位置上，页面加载之后用animate让他们上升上去
+	//设置了三个属性：填充色，边框色和放置手型鼠标的设置
+	var rect5=paper.rect(500,250,0,0).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	var rect6=paper.rect(500,250,0,0).attr({'fill':'white','stroke-width':'2','cursor':'pointer'});
+	//5,6一开始在2加载之后的位置，并设置为width，height为0，这样就达到了不可见的效果，然后利用事件来触发让他们显现出来
+	rect3.animate({"y":"400"},700,"linear");
+	rect2.animate({"y":"250"},700,"linear");
+	rect1.animate({"y":"100"},700,"linear");//这三句就是让1,2,3,加载完之后上升的句式
+
+	//var text4=paper.text(500,750,"URBAN\nGENES").attr({'fill':'black','font-size':'20','text-anchor':'middle'});
+	var text3=paper.text(500,750,"SKIP").attr({'fill':'black','font-size':'15','text-anchor':'middle'});
+	var text2=paper.text(500,750,"JOIN US").attr({'fill':'black','font-size':'15','text-anchor':'middle'});
+	var text1=paper.text(500,750,"LOG IN").attr({'fill':'black','font-size':'15','text-anchor':'middle'});
+	var text5=paper.text(500,285,"l e a r n").attr({'fill':'black','font-size':'0','text-anchor':'middle'});//普通的1,2,3,4的text
+	var text6=paper.text(500,285,"c o n t r i b u t e").attr({'fill':'black','font-size':'0','text-anchor':'middle'});//5,6的font-size是0，相当于不可见
+	//var text2=paper.text(500,750,"JOIN\nUS").attr({'fill':'black','font-size':'20','text-anchor':'middle'});
+	text3.animate({"y":"435","fill":"white"},700,"linear");//3是在黑色的背景框框里面，所以要设置成白色
+	text2.animate({"y":"285"},700,"linear");
+	text1.animate({"y":"135"},700,"linear");
+	//上面这text三句是在设立加载了window之后三个text也随着rect往上走的样子
+	// 下面四句规定了当鼠标放到“JOIN US”上之后，5,6会随着动画效果显现出他们该有的width和height
+	rect2.mouseover(function(){rect5.animate({'x':'250','width':'100','height':'70'},700,'linear')});
+	rect2.mouseover(function(){text5.animate({'font-size':'15','x':'300'},700,'linear')});
+	rect2.mouseover(function(){rect6.animate({'x':'650','width':'100','height':'70'},700,'linear')});
+	rect2.mouseover(function(){text6.animate({'font-size':'10','x':'700'},700,'linear')});
+
+//set the hover attr of rect2 and text2
+	rect2.mouseover(function(){rect2.animate({'fill':'black'},500)});
+	rect2.mouseover(function(){text2.animate({'fill':'white'},500)});
+	rect2.mouseout(function(){rect2.animate({'fill':'white'},500)});
+	rect2.mouseout(function(){text2.animate({'fill':'black'},500)});
+	text2.mouseover(function(){rect2.animate({'fill':'black'},500)});
+	text2.mouseover(function(){text2.animate({'fill':'white'},500)});
+	text2.mouseout(function(){rect2.animate({'fill':'white'},500)});
+	text2.mouseout(function(){text2.animate({'fill':'black'},500)});
+
+//set the hover attr of rect5 and text5
+	rect5.mouseover(function(){rect5.animate({'fill':'black'},500)});
+	rect5.mouseover(function(){text5.animate({'fill':'white'},500)});
+	rect5.mouseout(function(){rect5.animate({'fill':'white'},500)});
+	rect5.mouseout(function(){text5.animate({'fill':'black'},500)});
+	text5.mouseover(function(){rect5.animate({'fill':'black'},500)});
+	text5.mouseover(function(){text5.animate({'fill':'white'},500)});
+	text5.mouseout(function(){rect5.animate({'fill':'white'},500)});
+	text5.mouseout(function(){text5.animate({'fill':'black'},500)});
+
+
+	text5.mouseover(function(){rect5.animate({'x':'150','y':'200','height':'120','width':'200'},200)});
+	text5.mouseover(function(){text5_1.animate({'font-size':'15'},200,'easeIn')});
+	text5.mouseout(function(){rect5.animate({'x':'250','y':'250','width':'100','height':'70'},200)});
+	text5.mouseout(function(){text5_1.animate({'font-size':'0'},200,'easeIn')});//set the move of the text when other parts are changing
+//set the hover attr of rect6 and text6
+	rect6.mouseover(function(){rect6.animate({'fill':'black'},500)});
+	rect6.mouseover(function(){text6.animate({'fill':'white'},500)});
+	rect6.mouseout(function(){rect6.animate({'fill':'white'},500)});
+	rect6.mouseout(function(){text6.animate({'fill':'black'},500)});
+	text6.mouseover(function(){rect6.animate({'fill':'black'},500)});
+	text6.mouseover(function(){text6.animate({'fill':'white'},500)});
+	text6.mouseout(function(){rect6.animate({'fill':'white'},500)});
+	text6.mouseout(function(){text6.animate({'fill':'black'},500)});
+
+
+	text6.mouseover(function(){rect6.animate({'x':'650','y':'200','height':'120','width':'200'},200)});
+	text6.mouseover(function(){text6_1.animate({'font-size':'15'},200,'easeIn')});
+	text6.mouseout(function(){rect6.animate({'x':'650','y':'250','width':'100','height':'70'},200)});
+	text6.mouseout(function(){text6_1.animate({'font-size':'0'},200,'easeIn')});//set the move of the text when other parts are changing
+//set the hover attr of rect1 and text1
+	rect1.mouseover(function(){rect1.animate({'fill':'black'},500)});
+	rect1.mouseover(function(){text1.animate({'fill':'white'},500)});
+	rect1.mouseout(function(){rect1.animate({'fill':'white'},500)});
+	rect1.mouseout(function(){text1.animate({'fill':'black'},500)});
+	text1.mouseover(function(){rect1.animate({'fill':'black'},500)});
+	text1.mouseover(function(){text1.animate({'fill':'white'},500)});
+	text1.mouseout(function(){rect1.animate({'fill':'white'},500)});
+	text1.mouseout(function(){text1.animate({'fill':'black'},500)});
+
+
+	var text5_1=paper.text(210,230,"username:\npassword:\nconfirm").attr({'fill':'white','font-size':'0'});
+	var text6_1=paper.text(785,230,"username:\npassword:\nconfirm").attr({'fill':'white','font-size':'0'});
+
+
+	rect5.hover(function(){this.animate({'x':'150','y':'200','height':'120','width':'200'},200)});
+	rect5.hover(function(){text5_1.animate({'font-size':'15'},200,'easeIn')});
+	rect5.mouseout(function(){this.animate({'x':'250','y':'250','width':'100','height':'70'},200)});
+	rect5.mouseout(function(){text5_1.animate({'font-size':'0'},200,'easeIn')});
+
+	rect6.hover(function(){this.animate({'x':'650','y':'200','height':'120','width':'200'},200)});
+	rect6.hover(function(){text6_1.animate({'font-size':'15'},200,'easeIn')});
+	rect6.mouseout(function(){this.animate({'x':'650','y':'250','width':'100','height':'70'},200)});
+	rect6.mouseout(function(){text6_1.animate({'font-size':'0'},200,'easeIn')});
+
+
+	rect5.click(function(){window.open('main1.html','_self')});
+	rect1.click(function(){window.open('main.html','_self')});
+	rect6.click(function(){window.open('main.html','_self')});
+	//rect5.click(function(){window.open('main1.html')});
+
+	// rect6.dbclick(function(){this.animate({'x':'650','y':'200','height':'120','width':'200'},2000)});
+	// rect6.mouseout(function(){this.animate({'x':'650','y':'250','width':'100','height':'70'},1000)});
+// rect1.hover(function(){this.animate({'fill':'black'},500);},function(){this.animate({'fill':'white'},600);});
+// rect1.hover(function(){text1.animate({'fill':'white'},500);},function(){text1.animate({'fill':'black'},600);});
+
+// text1.hover(function(){this.animate({'fill':'white'},500);},function(){this.animate({'fill':'black'},600);});
+// text1.hover(function(){rect1.animate({'fill':'black'},500);},function(){this.animate({'fill':'white'},600);});
+//代码得到了简化
+
+	// rect1.mouseover(function(){rect4.animate({'fill':'black'},500)});
+	// rect1.mouseover(function(){text4.animate({'fill':'white'},500)});
+	// rect1.mouseout(function(){rect4.animate({'fill':'white'},500)});
+	// rect1.mouseout(function(){text4.animate({'fill':'black'},500)});
+	// text1.mouseover(function(){rect4.animate({'fill':'black'},500)});
+	// text1.mouseover(function(){text4.animate({'fill':'white'},500)});
+	// text1.mouseout(function(){rect4.animate({'fill':'white'},500)});
+	// text1.mouseout(function(){text4.animate({'fill':'black'},500)});//果然可以通过a元素的触发来改变b元素的性质，甚至来控制其他元素的状态和运动形态
+
+	//rect5.click(function(){rect5.animate({'width':'290','height':'290'},1000,'elastic')});
+}
+//比较出彩的地方是对于字体的隐藏，利用了font-size为零的小trick
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
